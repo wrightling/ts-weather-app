@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
+    environment:
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
     volumes:
       - .:/rails
       - bashhistory:/commandhistory
