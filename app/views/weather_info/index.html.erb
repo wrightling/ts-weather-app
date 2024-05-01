@@ -1,6 +1,26 @@
 <h1>Weather Info App</h1>
 <%= form_with url: "/weather_info/show", method: :get do |form| %>
-  <%= form.text_field :city, placeholder: "city" %>
-  <%= form.text_field :state, placeholder: "state" %>
-  <%= form.submit %>
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-3">
+        <%= form.label :city, { class: "col-lg-1 col-form-label" } %>
+        <div class="col-sm-2">
+          <%= form.text_field :city, { class: "form-control form-control-lg", placeholder: "ex. Franktown" } %>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <%= form.label :state, { class: "col-lg-1 col-form-label" } %>
+        <div class="col-sm-2">
+          <%= form.text_field :state, { class: "form-control form-control-lg", placeholder: "ex. Colorado" } %>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <%= form.label :zip_code, { class: "col-lg-1 col-form-label" } %>
+        <div class="col-sm-2">
+          <%= form.text_field :zip_code, { class: "form-control form-control-lg", placeholder: "zip code" } %>
+        </div>
+      </div>
+      <%= form.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
 <% end %>
