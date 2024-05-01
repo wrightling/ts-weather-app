@@ -1,0 +1,6 @@
+<h1>Weather Info App</h1>
+<%= form_with url: "/weather_info/show", method: :get do |form| %>
+  <%= form.text_field :city, placeholder: "city" %>
+  <%= form.text_field :state, placeholder: "state" %>
+  <%= form.submit %>
+<% end %>
