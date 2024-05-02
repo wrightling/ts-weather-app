@@ -1,3 +1,31 @@
-<h1>Weather Forecast for <%= @weather_data[:weather]["resolvedAddress"] %></h1>
-<p><%= @weather_data[:weather]["description"] %></p>
-<%= link_to 'Back to the main page', root_path %>
+<nav class="navbar bg-dark border-bottom bord-body" data-bs-theme="dark">
+  <span class="navbar-brand mb-0 h1">Weather Forecast for <%= @weather_data[:weather]["resolvedAddress"] %></span>
+</nav>
+<div class="container-fluid text-left">
+  <div class="row align-items-start">
+    <% @weather_data[:weather]["days"].first(5).each_with_index do |day, index| %>  
+      <div class="col-2">
+        <div class="card">
+          <div class="card-header">
+            <span class="h1"><%= index == 0 ? "Current Conditions" : day["datetime"] %></span>
+          </div>
+          <div class="card-body">
+            <p class="card-text h1"><%= day["temp"] %> degrees</p>
+            <p class="card-text">Humidity: <%= day["humidity"] %></p>
+            <p class="card-text">Low: <%= day["tempmin"] %> degrees</p>
+            <p class="card-text">High: <%= day["tempmax"] %> degrees</p>
+          </div>
+          <div class="card-footer text-body-secondary">
+            <%= day["description"] %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% if @weather_data[:cache_hit] %>
+    <div class="text-left">
+      <p class="text-warning bg-dark">This data came from a cache hit!</p>
+    </div>
+  <% end %>
+</div>
+<%= link_to 'Back to the main page', root_path, class: "link-secondary" %>

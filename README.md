@@ -1,5 +1,6 @@
 # Weather App
 ## Assumptions
+Made the simplifying assumption that the weather info is for the United States only.
 ## Implementaion Details
 ### WeatherApi
 Simple API wrapper for the Visual Crossing Timeline Weather API. API Key is handled via environment variables in production and via .env file in development and test.
@@ -39,3 +40,8 @@ Add the API key to a .env file in the rails app directory.
 echo "WEATHER_API_KEY={API key associated with your account}" > .env
 ```
 This will give rails access to your API key without exposing it to github or to the command line history.
+## Testing in Development Environment
+To test the caching component, run the following command locally to enable caching:
+```
+bundle exec rails dev:cache
+```

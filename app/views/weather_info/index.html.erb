@@ -1,4 +1,6 @@
-<h1>Weather Info App</h1>
+<nav class="navbar bg-dark border-bottom bord-body" data-bs-theme="dark">
+  <span class="navbar-brand mb-0 h1">Weather Info App</span>
+</nav>
 <%= form_with url: "/weather_info/show", method: :get do |form| %>
   <div class="card">
     <div class="card-body">
@@ -17,7 +19,7 @@
       <div class="row mb-3">
         <%= form.label :zip_code, { class: "col-lg-1 col-form-label" } %>
         <div class="col-sm-2">
-          <%= form.text_field :zip_code, { class: "form-control form-control-lg", placeholder: "zip code" } %>
+          <%= form.text_field :zip_code, { class: "form-control form-control-lg", placeholder: "ex. 80116" } %>
         </div>
       </div>
       <%= form.submit "Submit", class: "btn btn-primary" %>
